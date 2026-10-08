@@ -28,141 +28,143 @@ if "started" not in st.session_state:
 
 st.markdown(
     """
-    <style>
+<style>
 
-    /* ========================================================
-       GENERAL
-       ======================================================== */
-
-    .block-container {
-        max-width: 900px;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
-    }
+.block-container {
+    max-width: 900px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
 
 
-    /* ========================================================
-       LANDING PAGE
-       ======================================================== */
+/* ============================================================
+   LANDING PAGE
+   ============================================================ */
 
-    .landing {
-        text-align: center;
-        padding: 55px 20px 30px 20px;
-    }
+.landing {
+    text-align: center;
+    padding: 55px 20px 20px 20px;
+}
 
-    .landing-icon {
-        font-size: 3rem;
-        margin-bottom: 15px;
-    }
+.landing-icon {
+    font-size: 2.7rem;
+    margin-bottom: 15px;
+}
 
-    .landing-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 8px;
-    }
+.landing-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
 
-    .landing-subtitle {
-        font-size: 1.05rem;
-        opacity: 0.70;
-        margin-bottom: 40px;
-    }
-
-    .team-card {
-        border: 1px solid rgba(128, 128, 128, 0.30);
-        border-radius: 12px;
-        padding: 25px 30px;
-        margin: 0 auto 30px auto;
-        max-width: 560px;
-        text-align: center;
-    }
-
-    .team-title {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
-
-    .team-names {
-        font-size: 1rem;
-        line-height: 2;
-    }
-
-    .guide-title {
-        font-size: 0.9rem;
-        opacity: 0.65;
-        margin-top: 18px;
-        margin-bottom: 5px;
-    }
-
-    .guide-name {
-        font-size: 1rem;
-        font-weight: 600;
-    }
+.landing-subtitle {
+    font-size: 1.05rem;
+    opacity: 0.65;
+    margin-bottom: 40px;
+}
 
 
-    /* ========================================================
-       MAIN TITLE
-       ======================================================== */
+/* ============================================================
+   TEAM SECTION
+   ============================================================ */
 
-    .main-title {
-        text-align: center;
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 5px;
-    }
+.team-card {
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    padding: 25px 20px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 10px;
+    text-align: center;
+}
 
-    .main-subtitle {
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 25px;
-    }
+.team-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
 
+.team-names {
+    font-size: 1rem;
+    line-height: 1.8;
+}
 
-    /* ========================================================
-       SECTION HEADINGS
-       ======================================================== */
+.guide-title {
+    font-size: 0.88rem;
+    opacity: 0.60;
+    margin-top: 22px;
+    margin-bottom: 5px;
+}
 
-    .section-heading {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-top: 20px;
-        margin-bottom: 15px;
-    }
-
-
-    /* ========================================================
-       STREAMLIT INPUT LABELS
-       ======================================================== */
-
-    label {
-        font-weight: 500 !important;
-    }
+.guide-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
 
 
-    /* ========================================================
-       BUTTON
-       ======================================================== */
+/* ============================================================
+   BUTTON
+   ============================================================ */
 
-    div.stButton > button {
-        font-weight: 600;
-        border-radius: 7px;
-        min-height: 45px;
-    }
+div.stButton > button {
+    min-height: 45px;
+    border-radius: 7px;
+    font-weight: 600;
+}
 
 
-    /* ========================================================
-       FOOTER
-       ======================================================== */
+/* ============================================================
+   MAIN PAGE
+   ============================================================ */
 
-    .footer {
-        text-align: center;
-        font-size: 0.8rem;
-        margin-top: 35px;
-        opacity: 0.65;
-    }
+.main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
 
-    </style>
-    """,
+.main-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.70;
+    margin-bottom: 25px;
+}
+
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+
+.section-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* ============================================================
+   INPUT LABELS
+   ============================================================ */
+
+label {
+    font-weight: 500 !important;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 35px;
+    opacity: 0.60;
+}
+
+</style>
+""",
     unsafe_allow_html=True
 )
 
@@ -175,44 +177,44 @@ if not st.session_state.started:
 
     st.markdown(
         """
-        <div class="landing">
+<div class="landing">
 
-            <div class="landing-icon">🎓</div>
+    <div class="landing-icon">🎓</div>
 
-            <div class="landing-title">
-                Student Dropout Prediction
-            </div>
+    <div class="landing-title">
+        Student Dropout Prediction
+    </div>
 
-            <div class="landing-subtitle">
-                Machine Learning Based Student Risk Assessment
-            </div>
+    <div class="landing-subtitle">
+        Machine Learning Based Student Risk Assessment
+    </div>
 
-            <div class="team-card">
+    <div class="team-card">
 
-                <div class="team-title">
-                    Created by
-                </div>
-
-                <div class="team-names">
-                    Vivek Sharma<br>
-                    Yash Prabhakar<br>
-                    Unmesh Guru<br>
-                    Shashank Gupta<br>
-                    Souvik Barman
-                </div>
-
-                <div class="guide-title">
-                    Under the Guidance of
-                </div>
-
-                <div class="guide-name">
-                    Sunetra Mukherjee
-                </div>
-
-            </div>
-
+        <div class="team-title">
+            Created by
         </div>
-        """,
+
+        <div class="team-names">
+            Vivek Sharma<br>
+            Yash Prabhakar<br>
+            Unmesh Guru<br>
+            Shashank Gupta<br>
+            Souvik Barman
+        </div>
+
+        <div class="guide-title">
+            Under the Guidance of
+        </div>
+
+        <div class="guide-name">
+            Sunetra Mukherjee
+        </div>
+
+    </div>
+
+</div>
+""",
         unsafe_allow_html=True
     )
 
@@ -282,7 +284,6 @@ st.markdown(
     '<div class="section-heading">Student Information</div>',
     unsafe_allow_html=True
 )
-
 
 col1, col2 = st.columns(2)
 
@@ -387,18 +388,20 @@ if predict_button:
     # CREATE INPUT DATAFRAME
     # --------------------------------------------------------
 
-    sample_df = pd.DataFrame([
-        {
-            "age": age,
-            "exam_season": exam_season,
-            "courses_enrolled": courses_enrolled,
-            "completed_assignments": completed_assignments,
-            "completion_rate": completion_rate,
-            "login_frequency": login_frequency,
-            "last_activity_days_ago": last_activity,
-            "forum_posts_count": forum_posts
-        }
-    ])[features]
+    sample_df = pd.DataFrame(
+        [
+            {
+                "age": age,
+                "exam_season": exam_season,
+                "courses_enrolled": courses_enrolled,
+                "completed_assignments": completed_assignments,
+                "completion_rate": completion_rate,
+                "login_frequency": login_frequency,
+                "last_activity_days_ago": last_activity,
+                "forum_posts_count": forum_posts
+            }
+        ]
+    )[features]
 
 
     # --------------------------------------------------------
