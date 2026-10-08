@@ -178,46 +178,6 @@ st.markdown(
 )
 
 
-# ============================================================
-# MODEL INFORMATION
-# ============================================================
-
-st.markdown(
-    '<div class="model-box">',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    '<div class="model-box-title">Model Information</div>',
-    unsafe_allow_html=True
-)
-
-if accuracy is not None:
-
-    st.markdown(
-        f"""
-        <div class="model-box-text">
-            <b>Model:</b> {model_name}<br>
-            <b>Test Accuracy:</b> {accuracy * 100:.2f}%<br>
-            <b>Status:</b> Loaded Successfully
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-else:
-
-    st.markdown(
-        """
-        <div class="model-box-text">
-            <b>Model:</b> AdaBoost<br>
-            <b>Status:</b> Loaded Successfully
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-st.markdown("</div>", unsafe_allow_html=True)
 
 
 # ============================================================
