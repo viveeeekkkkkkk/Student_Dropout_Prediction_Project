@@ -15,6 +15,218 @@ st.set_page_config(
 
 
 # ============================================================
+# SESSION STATE
+# ============================================================
+
+if "started" not in st.session_state:
+    st.session_state.started = False
+
+
+# ============================================================
+# CUSTOM CSS
+# ============================================================
+
+st.markdown(
+    """
+    <style>
+
+    /* ========================================================
+       GENERAL
+       ======================================================== */
+
+    .block-container {
+        max-width: 900px;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }
+
+
+    /* ========================================================
+       LANDING PAGE
+       ======================================================== */
+
+    .landing {
+        text-align: center;
+        padding: 55px 20px 30px 20px;
+    }
+
+    .landing-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .landing-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .landing-subtitle {
+        font-size: 1.05rem;
+        opacity: 0.70;
+        margin-bottom: 40px;
+    }
+
+    .team-card {
+        border: 1px solid rgba(128, 128, 128, 0.30);
+        border-radius: 12px;
+        padding: 25px 30px;
+        margin: 0 auto 30px auto;
+        max-width: 560px;
+        text-align: center;
+    }
+
+    .team-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .team-names {
+        font-size: 1rem;
+        line-height: 2;
+    }
+
+    .guide-title {
+        font-size: 0.9rem;
+        opacity: 0.65;
+        margin-top: 18px;
+        margin-bottom: 5px;
+    }
+
+    .guide-name {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+
+    /* ========================================================
+       MAIN TITLE
+       ======================================================== */
+
+    .main-title {
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .main-subtitle {
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+
+    /* ========================================================
+       SECTION HEADINGS
+       ======================================================== */
+
+    .section-heading {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+
+    /* ========================================================
+       STREAMLIT INPUT LABELS
+       ======================================================== */
+
+    label {
+        font-weight: 500 !important;
+    }
+
+
+    /* ========================================================
+       BUTTON
+       ======================================================== */
+
+    div.stButton > button {
+        font-weight: 600;
+        border-radius: 7px;
+        min-height: 45px;
+    }
+
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    .footer {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 35px;
+        opacity: 0.65;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# ============================================================
+# STARTING PAGE
+# ============================================================
+
+if not st.session_state.started:
+
+    st.markdown(
+        """
+        <div class="landing">
+
+            <div class="landing-icon">🎓</div>
+
+            <div class="landing-title">
+                Student Dropout Prediction
+            </div>
+
+            <div class="landing-subtitle">
+                Machine Learning Based Student Risk Assessment
+            </div>
+
+            <div class="team-card">
+
+                <div class="team-title">
+                    Created by
+                </div>
+
+                <div class="team-names">
+                    Vivek Sharma<br>
+                    Yash Prabhakar<br>
+                    Unmesh Guru<br>
+                    Shashank Gupta<br>
+                    Souvik Barman
+                </div>
+
+                <div class="guide-title">
+                    Under the Guidance of
+                </div>
+
+                <div class="guide-name">
+                    Sunetra Mukherjee
+                </div>
+
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    if st.button(
+        "START PROJECT",
+        use_container_width=True
+    ):
+        st.session_state.started = True
+        st.rerun()
+
+    st.stop()
+
+
+# ============================================================
 # LOAD TRAINED MODEL
 # ============================================================
 
@@ -44,99 +256,6 @@ if bundle is None:
 model = bundle["model"]
 features = bundle["features"]
 
-model_name = bundle.get("model_name", "AdaBoost")
-accuracy = bundle.get("accuracy", None)
-
-
-# ============================================================
-# CUSTOM CSS - LIGHT + DARK MODE SUPPORT
-# ============================================================
-
-st.markdown(
-    """
-    <style>
-
-    /* ========================================================
-       GENERAL
-       ======================================================== */
-
-    .block-container {
-        max-width: 900px;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
-    }
-
-
-    /* ========================================================
-       MAIN TITLE
-       ======================================================== */
-
-    .main-title {
-        text-align: center;
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 5px;
-    }
-
-    .main-subtitle {
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 25px;
-    }
-
-
-   
-
-
-    /* ========================================================
-       SECTION HEADINGS
-       ======================================================== */
-
-    .section-heading {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-top: 20px;
-        margin-bottom: 15px;
-    }
-
-
-    /* ========================================================
-       FOOTER
-       ======================================================== */
-
-    .footer {
-        text-align: center;
-        font-size: 0.8rem;
-        margin-top: 35px;
-        opacity: 0.65;
-    }
-
-
-    /* ========================================================
-       STREAMLIT INPUT LABELS
-       ======================================================== */
-
-    label {
-        font-weight: 500 !important;
-    }
-
-
-    /* ========================================================
-       BUTTON
-       ======================================================== */
-
-    div.stButton > button {
-        font-weight: 600;
-        border-radius: 7px;
-        min-height: 42px;
-    }
-
-
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 
 # ============================================================
 # HEADER
@@ -153,8 +272,6 @@ st.markdown(
     '</div>',
     unsafe_allow_html=True
 )
-
-
 
 
 # ============================================================
