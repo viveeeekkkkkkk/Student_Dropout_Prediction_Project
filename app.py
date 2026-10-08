@@ -85,30 +85,7 @@ st.markdown(
     }
 
 
-    /* ========================================================
-       MODEL INFORMATION
-       ======================================================== */
-
-    .model-box {
-        border: 1px solid rgba(128, 128, 128, 0.30);
-        border-radius: 10px;
-        padding: 18px 22px;
-        margin-bottom: 25px;
-
-        /* Uses Streamlit theme automatically */
-        background-color: var(--background-color);
-    }
-
-    .model-box-title {
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    .model-box-text {
-        font-size: 0.95rem;
-        line-height: 1.7;
-    }
+   
 
 
     /* ========================================================
